@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/gabac/scrum-board",
   "dependencies": {
-    "express": "~3.4.8"
+    "express": "~3.4.8",
+    "logfmt": "~1.0.0-pre"
   }
 }
