@@ -1,0 +1,22 @@
+{
+  "name": "scrum-board",
+  "version": "0.0.1",
+  "description": "scrum board",
+  "main": "web.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/gabac/scrum-board.git"
+  },
+  "author": "gabac",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gabac/scrum-board/issues"
+  },
+  "homepage": "https://github.com/gabac/scrum-board",
+  "dependencies": {
+    "express": "~3.4.8"
+  }
+}
