@@ -2,17 +2,21 @@
 
 define([
 	'jquery',
+    'views/scrumboard',
 	'backbone'
-], function ($, Backbone) {
+], function ($, ScrumboardView, Backbone) {
 	'use strict';
 
 	var ScrumRouter = Backbone.Router.extend({
 		routes: {
-			'*scrum': 'setFilter'
+			'': 'scrumboard'
 		},
 
-		setFilter: function (param) {
+		scrumboard: function (param) {
 			console.log('scrummy');
+            
+        	// Initialize the application view
+        	new ScrumboardView().render();
 		}
 	});
 

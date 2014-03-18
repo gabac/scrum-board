@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
-// app.use('/bower_components', express.static(path.join(__dirname, 'bower_components')));
+app.use('/bower_components', express.static(path.join(__dirname, 'bower_components')));
 //loading routs
 var routes = require('./app/routes')(app);
 

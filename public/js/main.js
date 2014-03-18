@@ -31,14 +31,10 @@ require.config({
 
 require([
 	'backbone',
-	'views/app',
 	'routers/router'
-], function (Backbone, AppView, Workspace) {
+], function (Backbone, Workspace) {
 
 	// Initialize routing and start Backbone.history()
 	new Workspace();
 	Backbone.history.start();
-
-	// Initialize the application view
-	new AppView().render();
 });
