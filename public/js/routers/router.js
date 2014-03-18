@@ -9,7 +9,8 @@ define([
 
 	var ScrumRouter = Backbone.Router.extend({
 		routes: {
-			'': 'scrumboard'
+			'': 'scrumboard',
+            'addstory': 'addStory'
 		},
 
 		scrumboard: function (param) {
@@ -17,6 +18,13 @@ define([
             
         	// Initialize the application view
         	new ScrumboardView().render();
+		},
+        
+		addStory: function (param) {
+			console.log('add story');
+            
+        	// Initialize the application view
+            // new ScrumboardView().render();
 		}
 	});
 
