@@ -25,7 +25,9 @@ define([
                     status: status,
                     estimation: estimation,
                     story: story
-                })
+                });
+                
+                this.closeView();
             }
 		},
 
