@@ -19,6 +19,19 @@ define([
 		events: {
 			'click #addstory': function(event) {
                 var addStory = new AddStoryView({stories: this.model}).render();
+			},
+            
+			'click .editstory': function(event) {
+                var modelId = $(event.currentTarget).parent().data('model-id');
+                var addStory = new AddStoryView({stories: this.model, model: this.model.get(modelId)}).render();
+			},
+            
+			'click .deletestory': function(event) {
+                var modelId = $(event.currentTarget).parent().data('model-id');
+                
+                // this.model.remove(this.model.get(modelId));
+                this.model.get(modelId).destroy();
+                this.model.trigger('change');
 			}
 		},
 
@@ -31,7 +44,7 @@ define([
             
     		this.$el.html(this.template({
 			    todoStories: that.model.getTodoStories(),
-                openStories: that.model.getOpenStories(),
+                openStories: that.model.getInprogressStories(),
                 doneStories: that.model.getDoneStories()
     		}));
             

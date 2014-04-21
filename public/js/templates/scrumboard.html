@@ -20,12 +20,15 @@
                         <div>
                             Story: <%=todoStory.get('story')%>
                         </div>
+                        <a class="editstory"><span class="glyphicon glyphicon-edit">Edit</span></a>
+                        <br>
+                        <a class="deletestory"><span class="glyphicon glyphicon-remove">Delete</span></a>
                     </div>
                  <% } %>
           </div>
       </div>
       <div class="col-md-4">
-          <h2>Open</h2>
+          <h2>In Progress</h2>
           <div class="openstories">
                  <% for(var i = 0; i < openStories.length; i++) { 
                      var openStory = openStories[i];
@@ -43,6 +46,9 @@
                         <div>
                             Story: <%=openStory.get('story')%>
                         </div>
+                        <a class="editstory"><span class="glyphicon glyphicon-edit">Edit</span></a>
+                        <br>
+                        <a class="deletestory"><span class="glyphicon glyphicon-remove">Delete</span></a>
                     </div>
                  <% } %>
           </div>
@@ -66,6 +72,9 @@
                         <div>
                             Story: <%=doneStory.get('story')%>
                         </div>
+                        <a class="editstory"><span class="glyphicon glyphicon-edit">Edit</span></a>
+                        <br>
+                        <a class="deletestory"><span class="glyphicon glyphicon-remove">Delete</span></a>
                     </div>
                  <% } %>
           </div>

@@ -1,0 +1,23 @@
+<div id="addstorycontainer">
+      <div class="form-group">
+        <label for="storyTitle">Title</label>
+        <input type="text" class="form-control" id="storyTitle" placeholder="Enter title" value="<%=story.title %>">
+      </div>
+      <div class="form-group">
+        <label for="storyStatus">Status</label>
+        <select class="form-control" id="storyStatus">
+          <option <%=story.status == 'todo' ? "selected" : ''%>>todo</option>
+          <option <%=story.status == 'open' ? "selected" : ''%>>open</option>
+          <option <%=story.status == 'done' ? "selected" : ''%>>done</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="storyEstimation">Estimation</label>
+        <input type="number" class="form-control" id="storyEstimation" value="<%=story.estimation %>">
+      </div>
+      <div class="form-group">
+        <label for="storyStory">Story</label>
+        <textarea class="form-control" rows="3" id="storyStory"><%=story.story %></textarea>
+      </div>
+      <button type="button" class="btn btn-default" id="submitStory">Edit Story</button>
+</div>

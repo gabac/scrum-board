@@ -14,4 +14,8 @@ module.exports = function(app) {
     app.put('/api/stories/:id', function(req,res) {
        controller.updateStory(app, req, res);
     });
+    
+    app.delete('/api/stories/:id', function(req,res) {
+       controller.deleteStory(app, req, res);
+    });
 }

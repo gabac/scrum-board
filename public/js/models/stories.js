@@ -15,8 +15,8 @@ define([
             return this.where({status: 'todo'});
         },
         
-        getOpenStories: function() {
-            return this.where({status: 'open'});
+        getInprogressStories: function() {
+            return this.where({status: 'inprogress'});
         },
         
         getDoneStories: function() {

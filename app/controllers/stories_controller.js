@@ -15,20 +15,7 @@ exports.updateStory = function(app, req, res) {
     res.json(story);
 };
 
-// exports.show = function(app, req, res) {
-//   var todo = app.models.todo.find(req.params.id);
-//   res.json( todo );
-// };
-// 
-// exports.create = function(app, req, res) {
-//   console.log('Creating new todo');
-//   var todo = app.models.todo.create(req.body);
-//   res.json( todo );
-// };
-// 
-
-// 
-// exports.remove = function(app, req, res) {
-//   var todo = app.models.todo.remove(req.params.id);
-//   res.json( todo );
-// };
+exports.deleteStory = function(app, req, res) {
+    var story = app.models.story.deleteStory(req.params.id);
+    res.json(story);
+};

@@ -64,26 +64,21 @@ var Story = {
     return void 0;
   },
   
-  // remove: function (id) {
-  //   for (var i = 0; i < this.todos.length; i++) {
-  //     if (this.todos[i].id == id) {
-  //       var todo = this.todos[i];
-  //       this.todos.splice(i, 1);
-  //       return todo; // remove element and return it
-  //     }
-  // 
-  //   }
-  //   return void 0;
-  // },
-  // 
+  delete: function (id) {
+    for (var i = 0; i < this.stories.length; i++) {
+      if (this.stories[i].id == id) {
+        var story = this.stories[i];
+        this.stories.splice(i, 1);
+        return story; // remove element and return it
+      }
+  
+    }
+    return void 0;
+  },
+  
   all: function () {
     return this.stories;
-  },
-  // 
-  // clearAllEntries: function () {
-  //   this.todos = [];
-  //   this.last_id = 0;
-  // }
+  }
 };
 
 
@@ -91,29 +86,16 @@ exports.getAllStories = function () {
   return Story.all();
 };
 
-// exports.clearAllEntries = function () {
-//   return Todo.clearAllEntries();
-// };
-// 
-// 
-// 
 exports.addStory = function (data) {
   return Story.add(data);
 };
-// 
-// 
+
 exports.updateStory = function (data) {
   return Story.update(data);
 };
-// 
-// 
-// 
-// exports.find = function (id) {
-//   return Todo.find(id);
-// };
-// 
-// exports.remove = function (id) {
-//   return Todo.remove(id);
-// }
+
+exports.deleteStory = function (id) {
+  return Story.delete(id);
+};
 
 

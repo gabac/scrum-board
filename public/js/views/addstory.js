@@ -4,14 +4,16 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'text!templates/addstory.html'
-], function ($, _, Backbone, AddStoryTemplate) {
+	'text!templates/addstory.html',
+    'text!templates/addstory_edit.html'
+], function ($, _, Backbone, AddStoryTemplate, AddStoryEditTemplate) {
 
 	var AddStoryView = Backbone.View.extend({
 
 		el: '#addstoryview',
 
 		template: _.template(AddStoryTemplate),
+        editTemplate: _.template(AddStoryEditTemplate),
 
 		events: {
             'click #submitStory': function(event) {
@@ -20,12 +22,21 @@ define([
                 var estimation = $('#storyEstimation', this.$el).val();
                 var story = $('#storyStory', this.$el).val();
                 
-                var story = this.stories.create({
-                    title: title,
-                    status: status,
-                    estimation: estimation,
-                    story: story
-                });
+                if(this.editMode) {
+                    this.model.save({
+                        title: title,
+                        status: status,
+                        estimation: estimation,
+                        story: story
+                    });
+                } else {
+                    var story = this.stories.create({
+                        title: title,
+                        status: status,
+                        estimation: estimation,
+                        story: story
+                    });
+                }
                 
                 this.closeView();
             }
@@ -38,17 +49,26 @@ define([
 		render: function () {
             var that = this;
             
+            this.editMode = this.model !== undefined;
+            
             this.$el.show();
             
-    		this.$el.html(this.template({
-			    
-    		}));
+            if(this.editMode) {
+                this.$el.html(this.editTemplate({
+                    story: this.model.toJSON()
+                }));
+            } else {
+                this.$el.html(this.template());
+            }
+            
+    		
 		},
         
         closeView: function () {
             this.$el.hide();
             
             this.stories = undefined;
+            this.editMode = undefined;
         }
 
 	});
