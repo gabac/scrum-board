@@ -27,6 +27,6 @@
     "requirejs-text": "~2.0.10",
     "bootstrap": "~3.1.1",
     "jquery-ui": "~1.10.4",
-    "jasmine": "~2.0.0"
+    "jasmine": "1.3"
   }
 }
