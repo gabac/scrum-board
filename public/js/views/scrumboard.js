@@ -41,8 +41,16 @@ define([
                     that.updateModel(ui.draggable.data('model-id'), 'todo')
                 }
             });
-            $('.openstories', this.$el).droppable();
-            $('.donestories', this.$el).droppable();
+            $('.openstories', this.$el).droppable({
+                drop: function(event, ui) {
+                    that.updateModel(ui.draggable.data('model-id'), 'open')
+                }
+            });
+            $('.donestories', this.$el).droppable({
+                drop: function(event, ui) {
+                    that.updateModel(ui.draggable.data('model-id'), 'done')
+                }
+            });
 		},
         
         updateModel: function(modelId, status) {

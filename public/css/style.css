@@ -8,8 +8,11 @@
 
 .scrumboard .col-md-4{
     border-right: 1px solid grey;
-    height: 300px;
 }
+
+.scrumboard .todostories, .scrumboard .openstories, .scrumboard .donestories {
+    height: 300px;
+} 
 
 .scrumboard .addstoryview {
     display: none;
