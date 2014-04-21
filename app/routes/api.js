@@ -10,4 +10,8 @@ module.exports = function(app) {
     app.post('/api/stories', function(req, res) {
        controller.addStory(app, req, res);
     });
+    
+    app.put('/api/stories/:id', function(req,res) {
+       controller.updateStory(app, req, res);
+    });
 }

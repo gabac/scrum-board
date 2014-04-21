@@ -5,7 +5,8 @@ define([
 	'underscore',
 	'backbone',
 	'text!templates/scrumboard.html',
-    'views/addstory'
+    'views/addstory',
+    'jqueryui'
 ], function ($, _, Backbone, scrumboardTemplate, AddStoryView) {
 	'use strict';
 
@@ -29,9 +30,25 @@ define([
             var that = this;
             
     		this.$el.html(this.template({
-			    openStories: that.model.getOpenStories()
+			    todoStories: that.model.getTodoStories(),
+                openStories: that.model.getOpenStories(),
+                doneStories: that.model.getDoneStories()
     		}));
-		}
+            
+            $('.story', this.$el).draggable({ axis: 'x' });
+            $('.todostories', this.$el).droppable({
+                drop: function(event, ui) {
+                    that.updateModel(ui.draggable.data('model-id'), 'todo')
+                }
+            });
+            $('.openstories', this.$el).droppable();
+            $('.donestories', this.$el).droppable();
+		},
+        
+        updateModel: function(modelId, status) {
+            var modelToUpdate = this.model.get(modelId);
+            modelToUpdate.save({status: status});
+        }
 
 	});
 

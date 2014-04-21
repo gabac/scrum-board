@@ -10,6 +10,11 @@ exports.addStory = function(app, req, res) {
     res.json(story);
 };
 
+exports.updateStory = function(app, req, res) {
+    var story = app.models.story.updateStory(req.body);
+    res.json(story);
+};
+
 // exports.show = function(app, req, res) {
 //   var todo = app.models.todo.find(req.params.id);
 //   res.json( todo );
@@ -21,10 +26,7 @@ exports.addStory = function(app, req, res) {
 //   res.json( todo );
 // };
 // 
-// exports.update = function(app, req, res) {
-//   var todo = app.models.todo.update(req.body);
-//   res.json( todo );
-// };
+
 // 
 // exports.remove = function(app, req, res) {
 //   var todo = app.models.todo.remove(req.params.id);

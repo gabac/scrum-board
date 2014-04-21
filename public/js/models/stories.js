@@ -11,8 +11,16 @@ define([
         model: Story,
         url: '/api/stories',
         
-        getOpenStories: function() {
+        getTodoStories: function() {
             return this.where({status: 'todo'});
+        },
+        
+        getOpenStories: function() {
+            return this.where({status: 'open'});
+        },
+        
+        getDoneStories: function() {
+            return this.where({status: 'done'});
         }
     });
 

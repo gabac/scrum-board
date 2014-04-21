@@ -3,11 +3,34 @@
   <div class="row">
       <div class="col-md-4">
           <h2>Todo</h2>
-          <div>
+          <div class="todostories">
+                 <% for(var i = 0; i < todoStories.length; i++) { 
+                     var todoStory = todoStories[i];
+                 %>
+                    <div class="story" data-model-id="<%=todoStory.id%>">
+                        <div>
+                            Title: <%=todoStory.get('title')%>
+                        </div>
+                        <div>
+                            Status: <%=todoStory.get('status')%>
+                        </div>
+                        <div>
+                            Estimation: <%=todoStory.get('estimation')%>
+                        </div>
+                        <div>
+                            Story: <%=todoStory.get('story')%>
+                        </div>
+                    </div>
+                 <% } %>
+          </div>
+      </div>
+      <div class="col-md-4">
+          <h2>Open</h2>
+          <div class="openstories">
                  <% for(var i = 0; i < openStories.length; i++) { 
                      var openStory = openStories[i];
                  %>
-                    <div class="story">
+                    <div class="story" data-model-id="<%=openStory.id%>">
                         <div>
                             Title: <%=openStory.get('title')%>
                         </div>
@@ -25,10 +48,27 @@
           </div>
       </div>
       <div class="col-md-4">
-          <h2>In Progress</h2>
-      </div>
-      <div class="col-md-4">
-          <h2>Done </h2>
+          <h2>Done</h2>
+          <div class="donestories">
+                 <% for(var i = 0; i < doneStories.length; i++) { 
+                     var doneStory = doneStories[i];
+                 %>
+                    <div class="story" data-model-id="<%=doneStory.id%>">
+                        <div>
+                            Title: <%=doneStory.get('title')%>
+                        </div>
+                        <div>
+                            Status: <%=doneStory.get('status')%>
+                        </div>
+                        <div>
+                            Estimation: <%=doneStory.get('estimation')%>
+                        </div>
+                        <div>
+                            Story: <%=doneStory.get('story')%>
+                        </div>
+                    </div>
+                 <% } %>
+          </div>
       </div>
   </div>
 </div>

@@ -13,27 +13,26 @@ var Story = {
     }
   ],
   last_id: 1,
-  // 
+
   getNextId: function () {
     this.last_id += 1;
     return this.last_id;
   },
-  // 
+
   clone: function (data) {
     // JavaScript doesn't have a real clone function
     // This is good enough for simple, data-only objects
     return JSON.parse(JSON.stringify(data));
   },
-  // 
-  // // merges object with the attributes passed into this function
-  // //
-  // merge: function(object, attr) {
-  //   for (var attrname in attr) {
-  //     object[attrname] = attr[attrname];
-  //   }
-  //   return object;
-  // },
-  // 
+  
+  // merges object with the attributes passed into this function
+  merge: function(object, attr) {
+    for (var attrname in attr) {
+      object[attrname] = attr[attrname];
+    }
+    return object;
+  },
+   
   add: function (data) {
     // poor mans 'dup' (ruby), otherwise we will be modifying the original object
     console.log('creating todo with ' + data);
@@ -43,27 +42,28 @@ var Story = {
     this.stories.push(data);
     return data;
   },
-  // 
-  // update: function(data) {
-  //   console.log('updating with ' + data);
-  //   for (var i = 0; i < this.todos.length; i++) {
-  //     if (this.todos[i].id == data['id']) {
-  //       Todo.merge(this.todos[i], data);
-  //       return this.todos[i];
-  //     }
-  //   }
-  //   return void 0;
-  // },
-  // 
-  // find: function (id) {
-  //   for (var i = 0; i < this.todos.length; i++) {
-  //     if (this.todos[i].id == id) {
-  //       return this.todos[i];
-  //     }
-  //   }
-  //   return void 0;
-  // },
-  // 
+
+  update: function(data) {
+    console.log('updating with ' + data);
+    
+    var story = Story.find(data.id);
+    if(story) {
+        Story.merge(story, data);
+        return story;
+    }
+        
+    return void 0;
+  },
+  
+  find: function (id) {
+    for (var i = 0; i < this.stories.length; i++) {
+      if (this.stories[i].id == id) {
+        return this.stories[i];
+      }
+    }
+    return void 0;
+  },
+  
   // remove: function (id) {
   //   for (var i = 0; i < this.todos.length; i++) {
   //     if (this.todos[i].id == id) {
@@ -102,9 +102,9 @@ exports.addStory = function (data) {
 };
 // 
 // 
-// exports.update = function (data) {
-//   return Todo.update(data);
-// };
+exports.updateStory = function (data) {
+  return Story.update(data);
+};
 // 
 // 
 // 
