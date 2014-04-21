@@ -56,7 +56,7 @@ define([
             });
             $('.openstories', this.$el).droppable({
                 drop: function(event, ui) {
-                    that.updateModel(ui.draggable.data('model-id'), 'open')
+                    that.updateModel(ui.draggable.data('model-id'), 'inprogress')
                 }
             });
             $('.donestories', this.$el).droppable({
