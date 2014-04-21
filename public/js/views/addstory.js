@@ -20,13 +20,15 @@ define([
                 var title = $('#storyTitle', this.$el).val();
                 var status = $('#storyStatus', this.$el).val();
                 var estimation = $('#storyEstimation', this.$el).val();
+                var responsible = $('#storyResponsible', this.$el).val();
                 var story = $('#storyStory', this.$el).val();
                 
-                if(this.editMode) {
+                if(this.isEditMode()) {
                     this.model.save({
                         title: title,
                         status: status,
                         estimation: estimation,
+                        responsible: responsible,
                         story: story
                     });
                 } else {
@@ -34,10 +36,15 @@ define([
                         title: title,
                         status: status,
                         estimation: estimation,
+                        responsible: responsible,
                         story: story
                     });
                 }
                 
+                this.closeView();
+            },
+            
+            'click #cancel': function() {
                 this.closeView();
             }
 		},
@@ -49,11 +56,9 @@ define([
 		render: function () {
             var that = this;
             
-            this.editMode = this.model !== undefined;
-            
             this.$el.show();
             
-            if(this.editMode) {
+            if(this.isEditMode()) {
                 this.$el.html(this.editTemplate({
                     story: this.model.toJSON()
                 }));
@@ -64,11 +69,15 @@ define([
     		
 		},
         
+        isEditMode: function() {
+            return this.model !== undefined;
+        },
+        
         closeView: function () {
             this.$el.hide();
+            this.$el.empty();
             
             this.stories = undefined;
-            this.editMode = undefined;
         }
 
 	});

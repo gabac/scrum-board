@@ -6,10 +6,11 @@ var Story = {
   stories: [
     {
       id: '1',
-      title: 'foo',
+      title: 'Story 1',
       status: 'todo',
-      estimation: '14',
-      story: 'text'
+      estimation: '3',
+      responsible: 'Cyril',
+      story: 'this is a small text'
     }
   ],
   last_id: 1,

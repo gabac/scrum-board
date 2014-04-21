@@ -12,6 +12,7 @@ define([
             title: '',
             status: 'todo',
             estimation: '',
+            responsible: '',
             story: ''
         },
 

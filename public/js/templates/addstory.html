@@ -13,11 +13,22 @@
       </div>
       <div class="form-group">
         <label for="storyEstimation">Estimation</label>
-        <input type="number" class="form-control" id="storyEstimation">
+        <select class="form-control" id="storyEstimation">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>5</option>
+          <option>8</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="storyResponsible">Responsible</label>
+        <input type="text" class="form-control" id="storyResponsible" placeholder="Enter responsible">
       </div>
       <div class="form-group">
         <label for="storyStory">Story</label>
         <textarea class="form-control" rows="3" id="storyStory"></textarea>
       </div>
       <button type="button" class="btn btn-default" id="submitStory">Add Story</button>
+      <button type="button" class="btn btn-default" id="cancel">Cancel</button>
 </div>
