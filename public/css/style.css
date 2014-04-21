@@ -1,0 +1,16 @@
+.content {
+    margin-left: 20px;
+}
+
+.scrumboard {
+    margin-top: 20px;
+}
+
+.scrumboard .col-md-4{
+    border-right: 1px solid grey;
+    height: 300px;
+}
+
+.scrumboard .addstoryview {
+    display: none;
+}

@@ -1,16 +1,36 @@
+<a href="#" id="addstory" class="btn btn-default active" role="button">Add user story</a>
 <div class="container scrumboard">
   <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-4">
           <h2>Todo</h2>
+          <div>
+                 <% for(var i = 0; i < openStories.length; i++) { 
+                     var openStory = openStories[i];
+                 %>
+                    <div class="story">
+                        <div>
+                            Title: <%=openStory.get('title')%>
+                        </div>
+                        <div>
+                            Status: <%=openStory.get('status')%>
+                        </div>
+                        <div>
+                            Estimation: <%=openStory.get('estimation')%>
+                        </div>
+                        <div>
+                            Story: <%=openStory.get('story')%>
+                        </div>
+                    </div>
+                 <% } %>
+          </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
           <h2>In Progress</h2>
       </div>
-      <div class="col-md-3">
-          <h2>In Testing</h2>
-      </div>
-      <div class="col-md-3">
-          <h2>Done</h2>
+      <div class="col-md-4">
+          <h2>Done </h2>
       </div>
   </div>
+</div>
+<div id="addstoryview">
 </div>

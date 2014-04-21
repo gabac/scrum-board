@@ -10,6 +10,10 @@ app.use(express.urlencoded());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/bower_components', express.static(path.join(__dirname, 'bower_components')));
+
+// load models
+var models = require('./app/models')(app);
+
 //loading routs
 var routes = require('./app/routes')(app);
 

@@ -1,11 +1,11 @@
-'user strict';
+'use strict';
 
 define([
 	'jquery',
     'views/scrumboard',
-	'backbone'
-], function ($, ScrumboardView, Backbone) {
-	'use strict';
+	'backbone',
+    'models/stories'
+], function ($, ScrumboardView, Backbone, Stories) {
 
 	var ScrumRouter = Backbone.Router.extend({
 		routes: {
@@ -14,10 +14,11 @@ define([
 		},
 
 		scrumboard: function (param) {
-			console.log('scrummy');
             
-        	// Initialize the application view
-        	new ScrumboardView().render();
+            Stories.fetch({ success: function() {
+            	// Start the app if we got some data back
+            	new ScrumboardView({model: Stories}).render();
+            }});
 		},
         
 		addStory: function (param) {
